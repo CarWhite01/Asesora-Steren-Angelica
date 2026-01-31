@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Digital - Asesor Tecnológico</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="card-container">
+
+        <!-- Header Section -->
+        <header class="header">
+            <img src="img/profile.png" alt="Foto de Perfil" class="profile-pic">
+            <div class="info">
+                <h1 class="name">Angelica Fragoso</h1>
+                <p class="title">Asesor de Soluciones Tecnológicas</p>
+                <p class="subtitle">Especialista en Audio, Video y Proyectos</p>
+            </div>
+        </header>
+
+        <!-- Action Buttons -->
+        <section class="actions">
+            <!-- Whatsapp Link -->
+            <a href="https://wa.me/525575198425" class="btn btn-whatsapp" target="_blank">
+                Pedir Cotización por whatsapp
+            </a>
+
+            <!-- vCard Button -->
+            <button onclick="downloadVCard()" class="btn btn-vcard">
+                Guardar mi Contacto
+            </button>
+        </section>
+
+        <!-- Location Section -->
+        <section class="location">
+            <h3>Visítame en Sucursal</h3>
+            <div class="map-container">
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3765.429143471812!2d-99.0695870256375!3d19.30717578194555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85ce025aaef5b275%3A0x918fb7521ab3ed8f!2sSteren%20Tl%C3%A1huac!5e0!3m2!1ses!2smx!4v1769774287700!5m2!1ses!2smx"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <p class="hours">Horario: Lun-Vie 9:00am - 5:00pm</p>
+            <p class="hours">Horario: Sabado-Domingo 11:00am - 2:00pm</p>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Derechos Reservados-Software White</p>
+            <p>&copy; Uso prohibido por terceros</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
