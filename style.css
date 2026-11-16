@@ -246,17 +246,6 @@ body {
   letter-spacing: 0.5px;
 }
 
-.product-link {
-  margin-top: 8px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  text-decoration: underline;
-}
-
-.product-link:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
 
 .product-name {
   margin-top: 10px;

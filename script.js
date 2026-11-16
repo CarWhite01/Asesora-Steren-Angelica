@@ -74,14 +74,6 @@ function pintarProductos() {
         if (p.modelo) card.append(crearEl("p", "product-sku", `Modelo ${p.modelo}`));
         card.append(crearEl("p", "product-desc", p.descripcion), btn);
 
-        if (p.enlace) {
-            const ver = crearEl("a", "product-link", "Ver en Steren");
-            ver.href = p.enlace;
-            ver.target = "_blank";
-            ver.rel = "noopener";
-            ver.setAttribute("aria-label", `Ver ${p.nombre} en steren.com.mx`);
-            card.append(ver);
-        }
         lista.append(card);
     });
 }
