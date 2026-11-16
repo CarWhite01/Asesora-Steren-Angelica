@@ -318,6 +318,12 @@ footer {
   margin-top: 20px;
 }
 
+footer .disclaimer {
+  max-width: 420px;
+  margin: 0 auto 8px;
+  line-height: 1.4;
+}
+
 /* Fondo fijo solo en escritorio (en iPhone causa saltos) */
 @media (min-width: 900px) and (hover: hover) {
   body {
