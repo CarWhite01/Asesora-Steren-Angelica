@@ -6,15 +6,15 @@
 
 // ---------- PROMO DEL MES ----------
 // Para ocultar la promo, pon:  activa: false
-// ⚠️ El Buen Fin termina el 17 de noviembre: cambia este texto después.
+// Si quieres quitar la línea de vigencia, déjala vacía: vigencia: ""
 const PROMO = {
     activa: true,
-    etiqueta: "Buen Fin Steren",
-    titulo: "¡Precios de Buen Fin en audio, video y seguridad!",
-    descripcion: "Bafles, cámaras, proyectores y más con precio especial. Escríbeme y te aparto el tuyo antes de que se agote.",
-    vigencia: "Válido hasta el martes 17 de noviembre de 2026 a las 23:59 h o hasta agotar existencias.",
-    boton: "Quiero la promo",
-    mensajeWhatsApp: "Hola Angelica, vi la promo de Buen Fin en tu tarjeta y quiero más información."
+    etiqueta: "Mayoreo y proyectos",
+    titulo: "¿Necesitas varias piezas o un proyecto completo?",
+    descripcion: "Cotizo pedidos grandes para negocios, escuelas, iglesias, eventos e instalaciones. Te armo un paquete a la medida de lo que necesitas.",
+    vigencia: "Sujeto a disponibilidad en sucursal.",
+    boton: "Cotizar pedido grande",
+    mensajeWhatsApp: "Hola Angelica, quiero cotizar un pedido grande. Necesito:"
 };
 
 // ---------- LO QUE MÁS VENDO ----------
