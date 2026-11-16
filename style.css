@@ -225,10 +225,37 @@ body {
   overflow: hidden;
 }
 
+.product-media.has-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: #fff;
+}
+
 .product-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+}
+
+.product-sku {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--accent-blue);
+  letter-spacing: 0.5px;
+}
+
+.product-link {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-decoration: underline;
+}
+
+.product-link:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }
 
 .product-name {

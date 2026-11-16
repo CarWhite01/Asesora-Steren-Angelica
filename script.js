@@ -53,6 +53,7 @@ function pintarProductos() {
 
         const media = crearEl("div", "product-media");
         if (p.imagen) {
+            media.classList.add("has-img");
             const img = document.createElement("img");
             img.src = p.imagen;
             img.alt = p.nombre;
@@ -62,18 +63,25 @@ function pintarProductos() {
             media.innerHTML = `<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" fill="currentColor">${ICONOS[p.icono] || ICONOS.bocina}</svg>`;
         }
 
+        const modelo = p.modelo ? ` (modelo ${p.modelo})` : "";
         const btn = crearEl("a", "product-btn", "Cotizar esto");
-        btn.href = linkWhatsApp(`Hola Angelica, me interesa cotizar: ${p.nombre}.`);
+        btn.href = linkWhatsApp(`Hola Angelica, me interesa cotizar: ${p.nombre}${modelo}.`);
         btn.target = "_blank";
         btn.rel = "noopener";
         btn.setAttribute("aria-label", `Cotizar ${p.nombre} por WhatsApp`);
 
-        card.append(
-            media,
-            crearEl("h3", "product-name", p.nombre),
-            crearEl("p", "product-desc", p.descripcion),
-            btn
-        );
+        card.append(media, crearEl("h3", "product-name", p.nombre));
+        if (p.modelo) card.append(crearEl("p", "product-sku", `Modelo ${p.modelo}`));
+        card.append(crearEl("p", "product-desc", p.descripcion), btn);
+
+        if (p.enlace) {
+            const ver = crearEl("a", "product-link", "Ver en Steren");
+            ver.href = p.enlace;
+            ver.target = "_blank";
+            ver.rel = "noopener";
+            ver.setAttribute("aria-label", `Ver ${p.nombre} en steren.com.mx`);
+            card.append(ver);
+        }
         lista.append(card);
     });
 }
