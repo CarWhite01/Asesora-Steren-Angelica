@@ -5,7 +5,6 @@
   --text-secondary: #aaaaaa;
   --accent-blue: #00A8E8;
   --whatsapp-green: #25D366;
-  --corporate-blue: #00A8E8;
   --font-family: 'Inter', 'Roboto', sans-serif;
 }
 
@@ -19,7 +18,6 @@ body {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('img/fondo.jpg');
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   color: var(--text-primary);
   font-family: var(--font-family);
   min-height: 100vh;
@@ -31,8 +29,8 @@ body {
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  padding: 40px 20px;
-  /* Vertical spacing and side padding */
+  padding: 40px 20px 110px;
+  /* Espacio inferior para que el botón flotante no tape el contenido */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -117,13 +115,166 @@ body {
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
-.btn-vcard {
+.btn-share {
+  gap: 10px;
   background: linear-gradient(135deg, #00A8E8, #0077B6);
   box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
+  font-family: var(--font-family);
 }
 
-.btn-vcard:hover {
+.share-msg {
+  min-height: 1.2em;
+  margin-top: -10px;
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+}
+
+.btn-share:hover {
   box-shadow: 0 6px 20px rgba(0, 168, 232, 0.6);
+}
+
+/* Promo del mes */
+.promo {
+  position: relative;
+  padding: 22px 18px 18px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #3a1d00, #1e1e1e 70%);
+  border: 2px solid #ffb703;
+  box-shadow: 0 0 20px rgba(255, 183, 3, 0.25);
+  text-align: center;
+}
+
+.promo-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #ffb703;
+  color: #1a1a1a;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.promo-title {
+  margin-top: 12px;
+  font-size: 1.3rem;
+  color: #ffd166;
+}
+
+.promo-desc {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #e6e6e6;
+  line-height: 1.4;
+}
+
+.promo-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: #ffb703;
+  color: #1a1a1a;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.promo-btn:hover {
+  transform: scale(1.04);
+}
+
+.promo-valid {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Lo que más vendo */
+.products h2 {
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  border-radius: 14px;
+  background: #252525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.product-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 168, 232, 0.15);
+  color: var(--accent-blue);
+  overflow: hidden;
+}
+
+.product-media.has-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.product-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.product-sku {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--accent-blue);
+  letter-spacing: 0.5px;
+}
+
+
+.product-name {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.product-desc {
+  margin-top: 6px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+  flex: 1;
+}
+
+.product-btn {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--whatsapp-green);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.product-btn:focus-visible,
+.promo-btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 /* Location */
@@ -134,7 +285,7 @@ body {
   margin-top: 10px;
 }
 
-.location h3 {
+.location h2 {
   font-size: 1.1rem;
   margin-bottom: 12px;
   color: var(--text-primary);
@@ -163,6 +314,64 @@ body {
 /* Footer */
 footer {
   font-size: 0.75rem;
-  color: #555;
+  color: #8a8a8a;
   margin-top: 20px;
+}
+
+footer .disclaimer {
+  max-width: 420px;
+  margin: 0 auto 8px;
+  line-height: 1.4;
+}
+
+/* Fondo fijo solo en escritorio (en iPhone causa saltos) */
+@media (min-width: 900px) and (hover: hover) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+/* Foco visible al navegar con teclado */
+.btn:focus-visible,
+.wa-float:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+/* Botón flotante de WhatsApp */
+.wa-float {
+  position: fixed;
+  right: 20px;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 999px;
+  background: var(--whatsapp-green);
+  color: #fff;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.6);
+  transition: transform 0.2s ease;
+  animation: wa-pulse 2.5s infinite;
+}
+
+.wa-float:hover {
+  transform: scale(1.05);
+}
+
+@keyframes wa-pulse {
+  0%   { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0.6); }
+  70%  { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 14px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { animation: none; }
+  .btn, .wa-float { transition: none; }
 }
