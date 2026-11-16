@@ -115,12 +115,21 @@ body {
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
 }
 
-.btn-vcard {
+.btn-share {
+  gap: 10px;
   background: linear-gradient(135deg, #00A8E8, #0077B6);
   box-shadow: 0 4px 15px rgba(0, 168, 232, 0.4);
+  font-family: var(--font-family);
 }
 
-.btn-vcard:hover {
+.share-msg {
+  min-height: 1.2em;
+  margin-top: -10px;
+  font-size: 0.9rem;
+  color: var(--accent-blue);
+}
+
+.btn-share:hover {
   box-shadow: 0 6px 20px rgba(0, 168, 232, 0.6);
 }
 

@@ -1,49 +1,39 @@
-// Datos del contacto (sin teléfono ni correo: el contacto se hace por WhatsApp)
-const contact = {
-    firstName: "Angelica",
-    lastName: "Fragoso",
-    organization: "Steren Tláhuac",
-    title: "Asesora de Soluciones Tecnológicas",
-    note: "Especialista en Audio, Video y Proyectos",
+// Compartir la tarjeta digital
+const shareData = {
+    title: "Angelica Fragoso | Asesora Steren Tláhuac",
+    text: "Te comparto la tarjeta de Angelica, asesora en Steren Tláhuac (audio, video y proyectos):",
     url: window.location.origin + window.location.pathname
 };
 
-// Escapa caracteres especiales según el estándar vCard
-function escapeVCard(value) {
-    return String(value)
-        .replace(/\\/g, "\\\\")
-        .replace(/\n/g, "\\n")
-        .replace(/,/g, "\\,")
-        .replace(/;/g, "\\;");
+const shareBtn = document.getElementById("btn-share");
+const shareMsg = document.getElementById("share-msg");
+
+function showMessage(text) {
+    shareMsg.textContent = text;
+    setTimeout(() => { shareMsg.textContent = ""; }, 3000);
 }
 
-function downloadVCard() {
-    const e = escapeVCard;
-    const lines = [
-        "BEGIN:VCARD",
-        "VERSION:3.0",
-        `N:${e(contact.lastName)};${e(contact.firstName)};;;`,
-        `FN:${e(contact.firstName)} ${e(contact.lastName)}`,
-        `ORG:${e(contact.organization)}`,
-        `TITLE:${e(contact.title)}`,
-        `NOTE:${e(contact.note)}`,
-        `URL:${contact.url}`,
-        "END:VCARD"
-    ];
-
-    // El estándar vCard usa saltos de línea CRLF
-    const blob = new Blob([lines.join("\r\n")], { type: "text/vcard;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "Angelica-Fragoso.vcf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Libera la memoria del archivo temporal
-    setTimeout(() => URL.revokeObjectURL(url), 1000);
+async function copyLink() {
+    try {
+        await navigator.clipboard.writeText(shareData.url);
+        showMessage("¡Enlace copiado! Pégalo donde quieras.");
+    } catch {
+        // Último recurso si el navegador no permite copiar
+        window.prompt("Copia este enlace:", shareData.url);
+    }
 }
 
-document.getElementById("btn-vcard").addEventListener("click", downloadVCard);
+shareBtn.addEventListener("click", async () => {
+    // En celulares abre el menú nativo (WhatsApp, Messenger, etc.)
+    if (navigator.share) {
+        try {
+            await navigator.share(shareData);
+        } catch (err) {
+            // Si la persona cancela no hacemos nada
+            if (err.name !== "AbortError") copyLink();
+        }
+    } else {
+        // En computadoras sin menú de compartir, copia el enlace
+        copyLink();
+    }
+});
